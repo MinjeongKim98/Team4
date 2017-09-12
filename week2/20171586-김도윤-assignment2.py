@@ -1,27 +1,32 @@
+while (1):
 
-answer = 1
-inputStr = input()
+    answer = 1
+    inputStr = input()
 
-try:
-    inputNum = float(inputStr)
+    try:
+        inputNum = float(inputStr)
 
-except ValueError:
+        if(inputNum == -1):
+            break
 
-    inputStr = str(inputStr)
-    inputNum = -1
-    print(inputStr, " is not a number")
+    except ValueError:
 
-if (inputNum == 0):
+        inputStr = str(inputStr)
+        inputNum = -1
+        print(inputStr, " is not a number")
 
-    print(answer)
+    if (inputNum == 0):
 
-elif (inputNum < 0 or not inputNum - int(inputNum) == 0):
+        print(answer)
 
-    print("we can't do it")
+    elif (inputNum < -1 or not inputNum - int(inputNum) == 0):
 
-else:
-    while (inputNum > 0):
-        answer = inputNum * answer
-        inputNum = inputNum - 1
+        print("we can't do it")
 
-    print(answer)
+    else:
+
+        while (inputNum > 0):
+            answer = inputNum * answer
+            inputNum = inputNum - 1
+
+        print(int(answer))
