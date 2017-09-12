@@ -23,7 +23,7 @@ while (1):
 
         print("we can't do it")
 
-    else:
+    elif(inputNum != 1):
 
         while (inputNum > 0):
             answer = inputNum * answer
