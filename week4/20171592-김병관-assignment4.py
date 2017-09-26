@@ -7,9 +7,9 @@ def func1(m):
     return m*func1(m-1)
 
 def func2(m,n):
-    if func1(m) and func1(n) and func(m-n):
+    if m>=n:
         return int(func1(m)/(func1(n)*func1(m-n)))
-
+    
 def func3(m,n):
     if m == n:
         return 1
