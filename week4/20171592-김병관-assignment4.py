@@ -19,4 +19,4 @@ def func3(m,n):
         return m
     if n == 0:
         return 1
-    return func2(m-1,n)+func2(m-1,n-1)
+    return func3(m-1,n)+func3(m-1,n-1)
