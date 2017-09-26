@@ -9,6 +9,8 @@ def func1(m):
 def func2(m,n):
     if m>=n:
         return int(func1(m)/(func1(n)*func1(m-n)))
+    else:
+        return 0
     
 def func3(m,n):
     if m == n:
