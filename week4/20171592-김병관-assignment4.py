@@ -1,9 +1,4 @@
 
-countS=0
-count1=0
-count0=0
-countm=0
-
 def func1(m):
     if m == 1 or m == 0:
         return 1
@@ -12,6 +7,10 @@ def func1(m):
     return m*func1(m-1)
 
 def func2(m,n):
+    if func1(m) and func1(n) and func(m-n):
+        return int(func1(m)/(func1(n)*func1(m-n)))
+
+def func3(m,n):
     if m == n:
         return 1
     if m < n:
@@ -21,6 +20,3 @@ def func2(m,n):
     if n == 0:
         return 1
     return func2(m-1,n)+func2(m-1,n-1)
-
-def func3(m,n):
-    return int(func1(m)/(func1(n)*func1(m-n)))
