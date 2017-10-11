@@ -1,0 +1,28 @@
+def fibo(n):
+	if n <= 0:
+		return (-n)%2 #조원중 한명이 음수일때도 피보나치가 적용된다고 하여 추가했습니다.
+	a = 1 #fibo(-1)값
+	b = 0 #fibo(0)값 1,2 번째가 아니라 -1,0번째로 한 이유는 다음에 나온다!
+
+	for i in range(n): # 바로 여기서 range가 더 직관적으로 보이도록 하기 위하여! 1,2번쨰로 하면 range(n-2)로 해야함
+		temp = b
+		b += a
+		a = temp
+
+	return b
+
+def recurfibo(n):
+	if n <= 1:
+		return n
+	return recurfibo(n-1) + recurfibo(n-2)
+
+while True:
+	hi = int(input("Enter a number: "))
+	t = time.time()
+	num = fibo(hi)
+	t = time.time() - t
+	print("fibo(%d)=%d, time %.6f" % (hi, num, t))
+	t = time.time()
+	num = recurfibo(hi)
+	t = time.time() - t
+	print("Fibo(%d)=%d, time %.6f" %(hi, num, t))
