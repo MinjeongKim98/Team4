@@ -178,23 +178,21 @@ class ScoreDB(QWidget):
         # try: #try except -> fix all error
         try:
             if self.sender == self.addbtn:
-                # self.sender.text() == "Add":
-                # self.addbtn.clicked:
-                if len(self.nameEdit.text()) > 4 :
-                    print("something unnecessary was entered")
-
-                else:
                     record = {'Name': self.nameEdit.text(), 'Age': int(self.ageEdit.text()), 'Score': int(self.scoreEdit.text())}
                     self.scoredb += [record]
+                    self.showScoreDB()
+
         except IndexError:
             print("Index is out of range, check and enter again")
 
+
         try:
-            if self.sender is self.delbtn:
+            if self.sender() is self.delbtn:
                 for k in len(self.scoredb):
                     for p in self.scoredb:
                         #if self.delbtn.clicked:
                         self.scoredb.remove(p)
+                        self.showScoreDB()
 
         except IndexError:
             print("Index error, check and try again")
@@ -216,6 +214,8 @@ class ScoreDB(QWidget):
                     for i in self.scoredb:
                         if self.findEdit.text() == i['Name']:
                             print(i)
+                            self.showScoreDB()
+
 
         except IndexError:
             print("Index is out of range check and try again")
@@ -230,6 +230,7 @@ class ScoreDB(QWidget):
                             i['Score'] = int(self.incEdit.text()) + int(i['Score'])  # list is string so change them as integer
                     else:  # enter the word that does not exist
                         print("That name does not exist")
+                    self.showScoreDB()
 
         except IndexError:  # tell they are wrong and make program work again
             print("Out of range. try again please")
@@ -239,7 +240,7 @@ class ScoreDB(QWidget):
         sortKey = self.combo.currentIndex()
         for p in sorted(self.scoredb, key=lambda person: sortKey):
             for attr in sorted(p):
-                st += attr + "=" + str(p[attr])
+                st += attr + " = " + str(p[attr])
             st += '\n'
         self.resultEdit.setText(st)
         
